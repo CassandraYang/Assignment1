@@ -99,10 +99,7 @@ def exercise11 (A B C : Type) (p : A × B × C) : B :=
 
 @[autogradedDef 1]
 def exercise12 (A B C : Type) : A × B × C → C × A :=
-  intro p
-  constructor
-  exact p.2.2
-  exact p.1
+  fun p ↦ (p.2.2, p.1)
 
 -- Conjunctions and compound goals. Give a direct term for the first.
 
