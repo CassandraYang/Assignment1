@@ -294,8 +294,7 @@ theorem exercise36 (P Q R : Prop) :
 @[autogradedDef 1]
 def exercise37 (A B C : Type) :
     (A × B) ⊕ (A × C) → A × (B ⊕ C) :=
-  fun s ↦ (Sum.elim (fun (x, _) ↦ x) (fun (x, _) ↦ x) s, Sum.elim (fun (_, y) ↦ Sum.inl y) (fun (_, y) ↦ Sum.inr y) s)
-
+  Sum.elim (fun x ↦ (x.1, Sum.inl x.2)) (fun x ↦ (x.1, Sum.inr x.2))
 @[autogradedProof 2]
 theorem exercise38 (P Q R : Prop) :
     (P ∧ Q) ∨ (P ∧ R) → P ∧ (Q ∨ R) := by
